@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Recovery Help</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      width: 92%;
+      max-width: 430px;
+      background: white;
+      padding: 30px 22px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.12);
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #e1306c;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+      padding: 18px;
+      background: #f8f8f8;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .appeal {
+      display: block;
+      margin-top: 15px;
+      padding: 13px;
+      background: #3897f0;
+      color: white;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .warning {
+      font-size: 13px;
+      margin-top: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <div class="logo">Instagram Help</div>
+
+    <h1>Account Recovery</h1>
+
+    <p>
+      Having trouble accessing your Instagram account?
+      Enter your username and select your problem.
+    </p>
+
+    <input
+      type="text"
+      id="username"
+      placeholder="@username"
+    >
+
+    <select id="problem">
+      <option value="">Select your problem</option>
+      <option>Account Disabled</option>
+      <option>Account Suspended</option>
+      <option>Login Problem</option>
+      <option>Hacked Account</option>
+    </select>
+
+    <button onclick="showHelp()">Continue</button>
+
+    <div class="result" id="result">
+      <h3>Recovery Guidance</h3>
+
+      <p id="message"></p>
+
+      <a
+        class="appeal"
+        href="https://www.instagram.com/hacked/"
+        target="_blank"
+      >
+        Open Official Instagram Help
+      </a>
+    </div>
+
+    <div class="warning">
+      Never share your Instagram password, OTP or 2FA code with anyone.
+    </div>
+
+  </div>
+
+  <script>
+    function showHelp() {
+
+      const username =
+        document.getElementById("username").value.trim();
+
+      const problem =
+        document.getElementById("problem").value;
+
+      const result =
+        document.getElementById("result");
+
+      const message =
+        document.getElementById("message");
+
+      if (username === "") {
+        alert("Please enter your Instagram username.");
+        return;
+      }
+
+      if (problem === "") {
+        alert("Please select your problem.");
+        return;
+      }
+
+      result.style.display = "block";
+
+      message.innerHTML =
+        "Username: <b>" + username +
+        "</b><br><br>" +
+        "Problem: <b>" + problem +
+        "</b><br><br>" +
+        "Please use Instagram's official recovery process. " +
+        "Recovery cannot be guaranteed by this website.";
+    }
+  </script>
+
+</body>
+</html>
